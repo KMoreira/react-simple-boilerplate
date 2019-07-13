@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{125:function(n,e,t){"use strict";t.r(e);var a=t(42),r=t.n(a);var o=()=>r.a.createElement("h1",null,"Hello Stanger !");t.d(e,"default",function(){return o})}}]);
+//# sourceMappingURL=app.js.map

@@ -1,5 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { About, Home } from '../../Pages';
 
-const App = () => <h1>Hello Stanger !</h1>
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/sobre" component={About} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;

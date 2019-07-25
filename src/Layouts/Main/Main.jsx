@@ -11,7 +11,6 @@ const StyledMain = styled.main`
 
 const Main = ({ children }) => {
   const [toogleMenu, setToogleMenu] = useState(true);
-  console.log(toogleMenu);
   return (
     <Fragment>
       <Header toogleMenu={toogleMenu} onMenuButtonClick={() => setToogleMenu(!toogleMenu)} />

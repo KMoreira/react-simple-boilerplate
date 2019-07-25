@@ -1,11 +1,31 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
+
+import { Button } from '../../Components';
+
+const Title = styled.h1`
+  max-width: 1200px;
+  width: 100%;
+  line-height: 1.2;
+  color: white;
+  font-size: 5rem;
+`;
+
+const Wrapper = styled.section`
+  height: 100vh;
+  width: 100%;
+  background-color: #000000d1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Home = () => (
-  <Fragment>
-    <h1>Página inicial</h1>
-    <Link to="/sobre">Sobre</Link>
-  </Fragment>
+  <Wrapper>
+    <Title>Welcome</Title>
+    <Button>Enter</Button>
+  </Wrapper>
 );
 
 export default Home;

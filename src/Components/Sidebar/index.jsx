@@ -35,23 +35,12 @@ const StyledList = styled.ul`
   }
 `;
 
-const Sidebar = props => (
-  <StyledList {...props}>
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
-    <AlbumInfo />
+const Sidebar = ({ toogleMenu }) => (
+  <StyledList toogleMenu={toogleMenu} tabindex={toogleMenu ? 0 : -1}>
+    <AlbumInfo tabindex={toogleMenu ? 0 : -1} />
+    <AlbumInfo tabindex={toogleMenu ? 0 : -1} />
+    <AlbumInfo tabindex={toogleMenu ? 0 : -1} />
+    <AlbumInfo tabindex={toogleMenu ? 0 : -1} />
   </StyledList>
 );
 

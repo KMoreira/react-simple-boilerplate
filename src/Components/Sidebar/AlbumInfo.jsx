@@ -5,6 +5,9 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   padding: 2px;
+  :focus {
+    outline: 1px dotted white;
+  }
 
   &:hover {
     cursor: pointer;
@@ -26,8 +29,8 @@ const InfoWrapper = styled.div`
   }
 `;
 
-const AlbumInfo = () => (
-  <ListItem>
+const AlbumInfo = props => (
+  <ListItem tabIndex="0" {...props}>
     <Image
       src="https://data.whicdn.com/images/5872230/large.jpg"
       alt="30stm album"

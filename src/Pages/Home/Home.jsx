@@ -14,7 +14,6 @@ const Title = styled.h1`
 const Wrapper = styled.section`
   height: 100vh;
   width: 100%;
-  background-color: #000000d1;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

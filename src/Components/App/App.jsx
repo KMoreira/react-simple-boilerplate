@@ -3,6 +3,7 @@ import { Reset } from 'styled-reset';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { About, Home, AlbumPreview } from '../../Pages';
 import Main from '../../Layouts';
+import './GlobalStyle.css';
 
 const App = () => (
   <Fragment>

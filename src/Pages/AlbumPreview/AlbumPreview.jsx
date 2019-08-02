@@ -23,25 +23,22 @@ const Title = styled.h1`
   line-height: 1.2;
 `;
 
+const AlbumPreview = () => (
+  <Wrapper>
+    <Title>30 seconds to Mars</Title>
 
-const AlbumPreview = () => {
-  return (
-    <Wrapper>
-      <Title>30 seconds to Mars</Title>
+    <AlbumImage
+      src="https://data.whicdn.com/images/5872230/large.jpg"
+      alt="30 seconds to mars album"
+      title="This is War"
+    />
 
-      <AlbumImage
-        src="https://data.whicdn.com/images/5872230/large.jpg"
-        alt="30 seconds to mars album"
-        title="This is War"
-      />
-
-      <TrackList>
-        <Trackitem name="Call to arms" time="3:00" />
-        <Trackitem name="Call to arms" time="3:00" />
-        <Trackitem name="Call to arms" time="3:00" />
-      </TrackList>
-    </Wrapper>
-  );
-};
+    <TrackList>
+      <Trackitem name="Call to arms" time="3:00" />
+      <Trackitem name="Call to arms" time="3:00" />
+      <Trackitem name="Call to arms" time="3:00" />
+    </TrackList>
+  </Wrapper>
+);
 
 export default AlbumPreview;

@@ -13,7 +13,6 @@ const FigureCaption = styled.figcaption`
   line-height: calc(1.2rem + 6px);
 `;
 
-
 const Image = styled.img`
   margin: 0 auto;
   display: block;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Figure = styled.figure`
-  grid-area: 2 / 1 / 5 / 2;
+  grid-area: album;
 `;
 
 const FigureCaption = styled.figcaption`
@@ -16,6 +16,10 @@ const FigureCaption = styled.figcaption`
 const Image = styled.img`
   margin: 0 auto;
   display: block;
+  width: 50%;
+  @media screen and (min-width: 550px) {
+    width: 60%;
+  }
 `;
 
 const AlbumImage = ({ src, alt, title }) => (
@@ -25,7 +29,7 @@ const AlbumImage = ({ src, alt, title }) => (
       alt={alt}
       title={title}
     />
-    <FigureCaption>This is War</FigureCaption>
+    <FigureCaption>{title}</FigureCaption>
   </Figure>
 );
 

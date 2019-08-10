@@ -29,16 +29,16 @@ const InfoWrapper = styled.div`
   }
 `;
 
-const AlbumInfo = props => (
-  <ListItem tabIndex="0" {...props}>
+const AlbumInfo = ({ data, tabindex }) => (
+  <ListItem tabindex={tabindex}>
     <Image
-      src="https://data.whicdn.com/images/5872230/large.jpg"
-      alt="30stm album"
+      src={data.cover_medium}
+      alt={data.title}
     />
     <InfoWrapper>
-      <h1>This is War</h1>
-      <h2>30 Seconds to Mars</h2>
-      <small>11 músicas</small>
+      <h1>{data.title}</h1>
+      <h2>{data.artist.name}</h2>
+      <small>{data.nb_tracks} tracks</small>
     </InfoWrapper>
   </ListItem>
 );

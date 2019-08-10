@@ -4,38 +4,43 @@ import styled from 'styled-components';
 import PlayIcon from './PlayIcon';
 
 const ListItem = styled.li`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   border: 1px solid black;
-  padding: .5rem .5rem;
-  margin-bottom: .2rem;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 0.2rem;
   background-color: white;
   font-family: sans-serif;
   cursor: pointer;
-  filter: brightness(70%);
+  list-style: none;
+  box-sizing: border-box;
 
   &:hover {
-    filter: brightness(100%);
+    filter: brightness(70%);
   }
 `;
 
 const Button = styled.button`
-    border: none;
-    background: transparent;
-    cursor: pointer;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
 `;
 
-const TrackItem = ({ name, time }) => (
-  <ListItem>
-    <Button type="button" aria-label="play track">
-      <PlayIcon />
-    </Button>
+const TrackItem = ({ name, time, track, playTrackFn }) => {
 
-    <p>{name}</p>
-    <time>{time}</time>
-  </ListItem>
-);
+
+  return (
+    <ListItem>
+      <Button type="button" aria-label="play track" onClick={() => playTrackFn(track)}>
+        <PlayIcon />
+        <p>{name}</p>
+        <time>{time}</time>
+      </Button>
+    </ListItem>
+  );
+};
 
 export default TrackItem;

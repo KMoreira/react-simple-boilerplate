@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import PlayIcon from './PlayIcon';
+import { Play } from './Icons';
+
+import PauseIcon from './pause.png';
 
 const ListItem = styled.li`
   border: 1px solid black;
@@ -29,18 +31,24 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const TrackItem = ({ name, time, track, playTrackFn }) => {
+const Pause = styled.img`
+  width: 2rem;
+`;
 
-
-  return (
-    <ListItem>
-      <Button type="button" aria-label="play track" onClick={() => playTrackFn(track)}>
-        <PlayIcon />
-        <p>{name}</p>
-        <time>{time}</time>
-      </Button>
-    </ListItem>
-  );
-};
+const TrackItem = ({
+  name, time, track, playTrackFn, playing,
+}) => (
+  <ListItem>
+    <Button
+      type="button"
+      aria-label="play track"
+      onClick={() => playTrackFn(track)}
+    >
+      {playing ? <Pause src={PauseIcon} alt="" /> : <Play />}
+      <p>{name}</p>
+      <time>{time}</time>
+    </Button>
+  </ListItem>
+);
 
 export default TrackItem;

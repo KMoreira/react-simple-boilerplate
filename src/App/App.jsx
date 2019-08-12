@@ -10,8 +10,8 @@ const App = () => (
     <Reset />
     <BrowserRouter>
       <Main>
-        <Route path="/" exact component={AlbumPreview} />
         <Route path="/sobre" component={About} />
+        <Route path="/:albumId?" component={AlbumPreview} />
       </Main>
     </BrowserRouter>
   </Fragment>

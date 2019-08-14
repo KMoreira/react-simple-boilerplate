@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Play } from './Icons';
-
 import PauseIcon from './pause.png';
 
 const ListItem = styled.li`

@@ -11,14 +11,14 @@ describe('TrackItem', () => {
   const trackUrl = 'http://dezzer/track/test';
 
   beforeEach(() => {
-    wrapper = mount(<TrackItem name="NameA" time="20000" track={trackUrl} playTrackFn={playTrack} />);
+    wrapper = mount(<TrackItem name="Era so mais um silva" time="230" track={trackUrl} playTrackFn={playTrack} playing="true" />);
   });
 
   afterEach(() => jest.clearAllMocks());
 
   test('should receive name and time', () => {
-    expect(wrapper.props().name).toBe('NameA');
-    expect(wrapper.props().name).not.toBe('NameB');
+    expect(wrapper.props().name).toBe('Era so mais um silva');
+    expect(wrapper.props().name).not.toBe('Bohemia Raphsody');
   });
 
   test('should call function on click', () => {

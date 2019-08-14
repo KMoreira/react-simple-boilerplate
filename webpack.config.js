@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -23,6 +24,11 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  resolve: {
+    alias: {
+      Helpers$: path.resolve(__dirname, 'src/Helpers/index.jsx'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

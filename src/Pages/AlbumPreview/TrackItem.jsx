@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import convertTime from 'Helpers';
+
 import { Play } from './Icons';
 import PauseIcon from './pause.png';
 
@@ -13,9 +15,10 @@ const ListItem = styled.li`
   cursor: pointer;
   list-style: none;
   box-sizing: border-box;
+  filter: ${props => (props.playing ? 'brightness(100%)' : 'brightness(70%)')};
 
   &:hover {
-    filter: brightness(70%);
+    filter: brightness(100%);
   }
 `;
 
@@ -37,7 +40,7 @@ const Pause = styled.img`
 const TrackItem = ({
   name, time, track, playTrackFn, playing,
 }) => (
-  <ListItem>
+  <ListItem playing={playing}>
     <Button
       type="button"
       aria-label="play track"
@@ -45,7 +48,7 @@ const TrackItem = ({
     >
       {playing ? <Pause src={PauseIcon} alt="" /> : <Play />}
       <p>{name}</p>
-      <time>{time}</time>
+      <time>{convertTime(time)}</time>
     </Button>
   </ListItem>
 );

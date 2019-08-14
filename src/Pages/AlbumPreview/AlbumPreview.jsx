@@ -18,6 +18,7 @@ const Wrapper = styled.section`
     grid-template-areas: 'title title' 'album tracks';
   }
 `;
+
 const Title = styled.h1`
   grid-area: title;
   font-family: sans-serif;
@@ -39,30 +40,47 @@ const getAlbumById = async (id) => {
     headers,
   });
 
-  const result = response.ok ? await response.json() : [];
-  return result.error ? [] : result;
+  const result = response.ok ? await response.json() : null;
+  return !result.error ? result : null;
 };
 
 class AlbumPreview extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    album: null,
+    playing: null,
+  };
 
-    this.audio = new Audio();
-    this.audio.addEventListener('ended', () => this.setState({ playing: null }));
-    this.state = {
-      album: [],
-      playing: null,
-    };
-  }
+  audio = new Audio();
 
   async componentDidMount() {
     // eslint-disable-next-line react/destructuring-assignment
     const { albumId } = this.props.match.params;
-    const album = albumId ? await getAlbumById(albumId) : [];
+    this.updateAlbum(albumId);
+    this.audio.addEventListener('ended', () => this.setState({ playing: null }));
+  }
+
+  async componentDidUpdate(prevProps) {
+    // eslint-disable-next-line react/destructuring-assignment
+    const { albumId } = this.props.match.params;
+
+    if (prevProps.match.params.albumId !== albumId) {
+      this.updateAlbum(albumId);
+    }
+  }
+
+  updateAlbum = async (albumId) => {
+    const album = albumId ? await getAlbumById(albumId) : null;
     this.setState({ album });
   }
 
   playTrack = (trackSource) => {
+    if (trackSource === this.audio.src) {
+      this.audio.pause();
+      this.audio.src = null;
+      this.setState({ playing: null });
+      return;
+    }
+
     this.audio.src = trackSource;
     this.audio.play();
     this.setState({ playing: trackSource });
@@ -71,13 +89,14 @@ class AlbumPreview extends React.Component {
   render() {
     const { album, playing } = this.state;
 
-    if (album.length === 0) {
+    if (!album) {
       return (
         <Wrapper>
           <Title>Selecione um album no menu lateral ¯\_(ツ)_/¯</Title>
         </Wrapper>
       );
     }
+
     return (
       <Wrapper>
         <Title>{album.artist.name}</Title>

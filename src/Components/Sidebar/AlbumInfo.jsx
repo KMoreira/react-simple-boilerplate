@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const ListItem = styled.li`
   display: flex;
@@ -29,18 +30,35 @@ const InfoWrapper = styled.div`
   }
 `;
 
+const ArtistName = styled.h2`
+  margin: 0.3rem 0;
+`;
+
+const Album = withRouter(({
+  history,
+  children,
+  id,
+  tabIndex,
+}) => (
+  <ListItem
+    onClick={() => history.push(`/${id}`)}
+    tabindex={tabIndex}
+  >
+    {children}
+  </ListItem>
+));
+
 const AlbumInfo = ({ data, tabindex }) => (
-  <ListItem tabindex={tabindex}>
-    <Image
-      src={data.cover_medium}
-      alt={data.title}
-    />
+  <Album tabIndex={tabindex} id={data.id}>
+    <Image src={data.cover_medium} alt={data.title} />
     <InfoWrapper>
       <h1>{data.title}</h1>
-      <h2>{data.artist.name}</h2>
-      <small>{data.nb_tracks} tracks</small>
+      <ArtistName>{data.artist.name}</ArtistName>
+      <small>
+        {`${data.nb_tracks} tracks`}
+      </small>
     </InfoWrapper>
-  </ListItem>
+  </Album>
 );
 
 export default AlbumInfo;

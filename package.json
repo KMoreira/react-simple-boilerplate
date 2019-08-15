@@ -4,9 +4,9 @@
   "description": "React simple boilerplate",
   "main": "index.js",
   "scripts": {
-    "dev-server": "webpack-dev-server --open --port 3000 --compress --mode development",
+    "start": "webpack-dev-server --open --port 3000 --compress --mode development",
     "dev": "webpack --mode development --progress",
-    "start": "webpack --mode production --progress",
+    "build": "webpack --mode production --progress",
     "test": "jest --verbose",
     "test:watch": "jest --watchAll --verbose",
     "test:coverage": "jest --verbose --coverage",

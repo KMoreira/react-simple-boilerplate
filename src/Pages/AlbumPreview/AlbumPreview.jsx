@@ -99,8 +99,6 @@ class AlbumPreview extends React.Component {
 
     return (
       <Wrapper>
-        <Title>{album.artist.name}</Title>
-
         <AlbumImage
           src={album.cover_big}
           alt={album.title}

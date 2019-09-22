@@ -15,6 +15,7 @@ const StyledAside = styled.aside`
   height: calc(100vh - 78px);
   transition: left 0.3s ease-in;
   overflow-y: auto;
+  z-index: 3;
 
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
